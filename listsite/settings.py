@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-5n!z!hf))vfv!_^vv+k#hpc^+us))q1+gmy8#xhof*k(81$7o7
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS = ['*']
+CSRF_TRUSTED_ORIGINS = ['https://listor-production.up.railway.app']
 
 
 # Application definition
