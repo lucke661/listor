@@ -1,0 +1,38 @@
+{% extends "listapp/mall.html" %}
+{% load crispy_forms_tags %}
+
+{% block innehall %}
+<div class="container py-5">
+    {% for lista in listan %}
+        <h1>
+            {{lista.listname}}
+            {% if lista.cuser == user %}
+                <a href="{% url 'lista-uppdatera' lista.id %}"><i class="bi bi-pencil-square"></i></a>
+                <a href="{% url 'lista-radera' lista.id %}"><i class="bi bi-trash"></i></a>
+            {% endif %}
+        </h1>
+    {% endfor %}
+
+    <table>
+        <tr>
+            <th>Vara</th>
+            <th>Antal</th>
+            <th></th>
+            <th></th>
+        </tr>
+        {% for object in objects %}
+        <tr>
+            <td>{{ object.objectname }}</td>
+            <td>{{ object.amount }}</td>
+            <td><a href="{% url 'object-uppdatera' object.id %}"><i class="bi bi-pencil-square"></a></td>
+            <td><a href="{% url 'object-radera' object.id %}"><i class="bi bi-trash"></i></a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    {% for lista in listan %}
+        <a class="btn btn-primary" href="{% url 'object-ny' lista.id %}">Ny vara</a>
+    {% endfor %}
+
+</div>
+{% endblock %}
